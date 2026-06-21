@@ -21,6 +21,7 @@ export default function App() {
   const [currentDay, setCurrentDay] = useState(0);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const [notificationsCount, setNotificationsCount] = useState(0);
+  const [isConsoleOpen, setIsConsoleOpen] = useState(true);
 
   // Settings form states
   const [paycheckInput, setPaycheckInput] = useState('');
@@ -176,7 +177,10 @@ export default function App() {
         </header>
 
         {/* Content Container */}
-        <main className="flex-1 overflow-y-auto pb-48">
+        <main 
+          className={`flex-1 flex flex-col ${activeTab === 'chat' ? 'overflow-hidden' : 'overflow-y-auto pb-48'}`}
+          style={activeTab === 'chat' ? { paddingBottom: isConsoleOpen ? '288px' : '48px' } : undefined}
+        >
           
           {/* TAB 1: DASHBOARD VIEW */}
           {activeTab === 'dashboard' && (
@@ -361,13 +365,14 @@ export default function App() {
               dbService={dbService}
               onTriggerReload={reloadData}
               logs={logs}
+              setActiveTab={setActiveTab}
             />
           )}
 
         </main>
 
         {/* Live Ledger Agent Console pinned at bottom of main content panel */}
-        <SystemConsole logs={logs} />
+        <SystemConsole logs={logs} isOpen={isConsoleOpen} setIsOpen={setIsConsoleOpen} />
 
         {/* Upload Bill / Receipt Floating Modal */}
         {isUploadModalOpen && (

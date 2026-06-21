@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
-export default function SystemConsole({ logs }) {
-  const [isOpen, setIsOpen] = useState(true);
+export default function SystemConsole({ logs, isOpen, setIsOpen }) {
+  const [localIsOpen, setLocalIsOpen] = useState(true);
+  const open = isOpen !== undefined ? isOpen : localIsOpen;
+  const toggleOpen = () => {
+    if (setIsOpen) setIsOpen(!open);
+    else setLocalIsOpen(!open);
+  };
   const [activeFilter, setActiveFilter] = useState('all');
 
   const agents = [
@@ -45,12 +50,12 @@ export default function SystemConsole({ logs }) {
 
   return (
     <div className={`fixed bottom-0 right-0 left-[72px] bg-white border-t border-[#ebebeb] shadow-2xl transition-all duration-300 z-40 ${
-      isOpen ? 'h-72' : 'h-12'
+      open ? 'h-72' : 'h-12'
     } flex flex-col`}>
       
       {/* Header / Click area */}
       <div 
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleOpen}
         className="px-6 h-12 border-b border-[#ebebeb] flex items-center justify-between cursor-pointer hover:bg-[#fafafa] select-none"
       >
         <div className="flex items-center gap-3">
@@ -63,7 +68,7 @@ export default function SystemConsole({ logs }) {
         </div>
         
         <div className="flex items-center gap-2">
-          {isOpen ? (
+          {open ? (
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-muted hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -75,7 +80,7 @@ export default function SystemConsole({ logs }) {
         </div>
       </div>
 
-      {isOpen && (
+      {open && (
         <>
           {/* Controls Bar */}
           <div className="px-6 py-2 border-b border-[#f3f4f6] bg-[#fafafa] flex gap-2 flex-wrap items-center">
