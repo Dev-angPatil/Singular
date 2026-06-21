@@ -10,10 +10,12 @@ export default function Sidebar({ profile, activeTab, setActiveTab }) {
       {/* The actual black floating pill */}
       <aside className="flex-1 bg-[#0d0d0d] rounded-[28px] flex flex-col items-center py-5 shadow-[0_4px_32px_rgba(0,0,0,0.18)]">
 
-        {/* Brand Logo — White circle with 'R' (matching reference) */}
+        {/* Brand Logo — White circle with 'S' (matching Singular brand) */}
         <div className="mb-5 flex items-center justify-center">
           <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md border border-gray-100 hover:scale-105 transition-transform cursor-pointer">
-            <span className="text-[#0d0d0d] text-base font-black tracking-tighter">R</span>
+            <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#0d0d0d]" fill="currentColor">
+              <path d="M18.5 7.75c0-2.35-1.9-4.25-4.25-4.25h-4.5C7.4 3.5 5.5 5.4 5.5 7.75s1.9 4.25 4.25 4.25h1.5c1.24 0 2.25 1.01 2.25 2.25s-1.01 2.25-2.25 2.25h-4.5c-1.24 0-2.25-1.01-2.25-2.25v-.5a1 1 0 10-2 0v.5c0 2.35 1.9 4.25 4.25 4.25h4.5c2.35 0 4.25-1.9 4.25-4.25s-1.9-4.25-4.25-4.25h-1.5c-1.24 0-2.25-1.01-2.25-2.25s1.01-2.25 2.25-2.25h4.5c1.24 0 2.25 1.01 2.25 2.25v.5a1 1 0 102 0v-.5z" />
+            </svg>
           </div>
         </div>
 
