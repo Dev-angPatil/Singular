@@ -35,3 +35,14 @@ pnpm-debug.log*
 
 # Agent files
 .agents/
+
+# Design, Strategy and Hackathon reference docs
+design.md
+*.png
+*.jpg
+*.jpeg
+hackathon_winning_strategy.md
+production_upgrade_plan.md
+walkthrough.md
+task.md
+
