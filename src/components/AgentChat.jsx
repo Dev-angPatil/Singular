@@ -518,11 +518,7 @@ export default function AgentChat({ dbService, onTriggerReload, logs, setActiveT
             </div>
           </div>
 
-          {/* Quick tips box */}
-          <div className="bg-slate-50/80 border border-[#f1f3f5] p-4 rounded-2xl text-[9px] text-slate-500 leading-normal space-y-1.5 shrink-0 mt-4">
-            <span className="font-black text-slate-700 block uppercase tracking-wider text-[8px] mb-1">💡 Sandbox Node Protocols</span>
-            <p>You can execute ledger simulations by sending requests to Accountant (write-offs), Treasury (reserves stress-test), or Sentinel (invoice chase scans).</p>
-          </div>
+
         </div>
       </div>
 
